@@ -9,7 +9,7 @@ This bundle helps connecting to an existing LDAP server.
 Add the dependency to your `composer.json` file :
 
 ```json
-"lilweb/ldap-bundle" : "dev-master@dev"
+"lilweb/ldap-bundle" : "0.1.0"
 ```    
   
 Add the bundle to `AppKernel.php` :
