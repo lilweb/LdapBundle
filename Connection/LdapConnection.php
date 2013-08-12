@@ -12,8 +12,6 @@ use Lilweb\LdapBundle\Exception\LdapConnectionException;
 
 /**
  * Classe ajoutant un niveau objet à la librairie LDAP de php (php5-ldap)
- *
- * @author Geoffrey Brier <geoffrey.brier@gmail.com>
  */
 class LdapConnection
 {
@@ -97,7 +95,7 @@ class LdapConnection
         }
 
         if (empty($password)) {
-            throw new LdapConnectionException('LdapConnection::bind - Le mot de passe est vide?');
+            throw new LdapConnectionException('LdapConnection::bind - Password is empty?');
         }
 
         return (bool) @ldap_bind($this->_ress, $user_dn, $password);
@@ -180,18 +178,18 @@ class LdapConnection
 
         if (isset($this->params['username']) && $this->params['version'] !== null) {
             if (!isset($this->params['password'])) {
-                throw new LdapConnectionException('LDAP Connection failed : Mot de passe non définie');
+                throw new LdapConnectionException('LDAP Connection failed : Password undefined');
             }
             $bindress = @ldap_bind($ress, $this->params['username'], $this->params['password']);
 
             if (!$bindress) {
-                throw new LdapConnectionException('LDAP Connection failed : identifiants invalides');
+                throw new LdapConnectionException('LDAP Connection failed : credentials refused');
             }
         } else {
             $bindress = @ldap_bind($ress);
 
             if (!$bindress) {
-                throw new LdapConnectionException('LDAP Connection failed : Impossible de se connecter au serveur');
+                throw new LdapConnectionException('LDAP Connection failed!');
             }
         }
 
