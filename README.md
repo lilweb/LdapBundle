@@ -4,7 +4,7 @@ LdapBundle
 This bundle helps connecting to an existing LDAP server. 
 
 
-### Installation
+## Installation
 
 Add the dependency to your `composer.json` file :
 
@@ -18,7 +18,7 @@ Add the bundle to `AppKernel.php` :
 new Lilweb\LdapBundle\LilwebLdapBundle(),
 ```
   
-### Configuration 
+## Configuration 
 
 Add the following to your config.yml file :
 
@@ -31,7 +31,7 @@ lilweb_ldap:
     version: %ldap_client_version%
 ```
 
-### Usage
+## Usage
 
 A new service called `lilweb.ldap_connection` is now available in your container. 
 
@@ -49,7 +49,7 @@ $entries = $this
 ```
 
 
-### Technical information
+## Technical information
 
 - The connection is not made until a method on the connection is called. 
 - This bundle requires the PHP-ldap extension
