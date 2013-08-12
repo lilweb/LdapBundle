@@ -1,6 +1,8 @@
 {
     "name": "lilweb/ldap-bundle",
     "description": "LDAP acces library",
+    "homepage" : "https://github.com/lilweb/LdapBundle",
+    "keywords": ["ldap", "symfony2"],
     "license": "MIT",
     "authors": [
         {
@@ -9,7 +11,8 @@
         }
     ],
     "require": {
-        "php": ">=5.3.0"
+        "php": ">=5.3.0", 
+        "ext-ldap": "*" 
     },
     "autoload": {
         "psr-0": { "Lilweb\\LdapBundle": "" }
