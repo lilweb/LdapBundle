@@ -116,7 +116,7 @@ class LdapConnection
      */
     public function getHost()
     {
-        return $this->params['client']['host'];
+        return $this->params['host'];
     }
 
     /**
@@ -124,7 +124,7 @@ class LdapConnection
      */
     public function getPort()
     {
-        return isset($this->params['client']['port']) ? $this->params['client']['port'] : '389';
+        return isset($this->params['port']) ? $this->params['port'] : '389';
     }
 
     /**
@@ -170,19 +170,19 @@ class LdapConnection
 
         $ress = @ldap_connect($this->getHost(), $port);
 
-        if (isset($this->params['client']['version']) && $this->params['client']['version'] !== null) {
-            ldap_set_option($ress, LDAP_OPT_PROTOCOL_VERSION, $this->params['client']['version']);
+        if (isset($this->params['version']) && $this->params['version'] !== null) {
+            ldap_set_option($ress, LDAP_OPT_PROTOCOL_VERSION, $this->params['version']);
         }
 
-        if (isset($this->params['client']['referrals_enabled']) && $this->params['client']['referrals_enabled'] !== null) {
-            ldap_set_option($ress, LDAP_OPT_REFERRALS, $this->params['client']['referrals_enabled']);
+        if (isset($this->params['referrals_enabled']) && $this->params['referrals_enabled'] !== null) {
+            ldap_set_option($ress, LDAP_OPT_REFERRALS, $this->params['referrals_enabled']);
         }
 
-        if (isset($this->params['client']['username']) && $this->params['client']['version'] !== null) {
-            if (!isset($this->params['client']['password'])) {
+        if (isset($this->params['username']) && $this->params['version'] !== null) {
+            if (!isset($this->params['password'])) {
                 throw new LdapConnectionException('LDAP Connection failed : Mot de passe non définie');
             }
-            $bindress = @ldap_bind($ress, $this->params['client']['username'], $this->params['client']['password']);
+            $bindress = @ldap_bind($ress, $this->params['username'], $this->params['password']);
 
             if (!$bindress) {
                 throw new LdapConnectionException('LDAP Connection failed : identifiants invalides');

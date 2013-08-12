@@ -21,24 +21,13 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('lilweb_ldap');
         $rootNode
             ->children()
-                ->arrayNode('client')
-                ->children()
-                    ->scalarNode('host')->isRequired()->cannotBeEmpty()->end()
-                    ->scalarNode('port')->defaultValue(389)->end()
-                    ->scalarNode('version')->end()
-                    ->scalarNode('username')->end()
-                    ->scalarNode('password')->end()
-                    ->scalarNode('referrals_enabled')->end()
-                ->end()
-            ->end()
-            ->arrayNode('user')
-                ->children()
-                    ->scalarNode('base_dn')->isRequired()->cannotBeEmpty()->end()
-                    ->scalarNode('filter')->end()
-                    ->scalarNode('name_attribute')->defaultValue('uid')->end()
-                    ->variableNode('attributes')->defaultValue(array())->end()
-                ->end()
-            ->end();
+                ->scalarNode('host')->isRequired()->cannotBeEmpty()->end()
+                ->scalarNode('port')->defaultValue(389)->end()
+                ->scalarNode('version')->end()
+                ->scalarNode('username')->end()
+                ->scalarNode('password')->end()
+                ->scalarNode('referrals_enabled')->end()
+                ->end();
 
         return $treeBuilder;
     }

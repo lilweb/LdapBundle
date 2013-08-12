@@ -24,6 +24,6 @@ class LilwebLdapExtension extends Extension
 
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
-        $container->setParameter('Lilweb.ldap_connection.params', $config);
+        $container->setParameter('lilweb_ldap.ldap_connection.params', $config);
     }
 }
