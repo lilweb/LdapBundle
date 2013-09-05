@@ -10,7 +10,7 @@
     </parameters>
 
     <services>
-        <service id="lilweb_ldap.connection" class="%lilweb_ldap.ldap_connection.class%">
+        <service id="lilweb.ldap.connection" class="%lilweb_ldap.ldap_connection.class%">
             <argument type="service" id="logger" />
             <argument>%lilweb_ldap.ldap_connection.params%</argument>
         </service>
